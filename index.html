@@ -276,4 +276,296 @@ h1 {
 }
 
 @keyframes sway {
-   
+       0%, 100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+}
+
+/* FLOATING PETALS */
+.petal {
+    position: fixed;
+    font-size: 24px;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.p1 {
+    left: 8%;
+    animation-duration: 8s;
+}
+
+.p2 {
+    left: 25%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.p3 {
+    left: 48%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.p4 {
+    left: 72%;
+    animation-duration: 12s;
+    animation-delay: 4s;
+}
+
+.p5 {
+    left: 90%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+@keyframes fall {
+    from {
+        top: -10%;
+        transform: rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    to {
+        top: 110%;
+        transform: rotate(360deg) translateX(80px);
+        opacity: 0;
+    }
+}
+
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    top: -20px;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 20;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #cba9d0;
+}
+</style>
+</head>
+
+<body>
+    <!-- STARS -->
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<!-- MOON -->
+<div class="moon"></div>
+
+<!-- FLOATING PETALS -->
+<div class="petal p1">🌷</div>
+<div class="petal p2">🌸</div>
+<div class="petal p3">🌷</div>
+<div class="petal p4">🌸</div>
+<div class="petal p5">🌷</div>
+
+<div class="container">
+
+    <h1>Happy Birthday, Yasin 🌷</h1>
+
+    <div class="subtitle">
+        A little surprise made especially for you ✨
+    </div>
+
+    <!-- ENVELOPE -->
+    <div class="envelope" onclick="openLetter()">
+
+        <div class="env-body"></div>
+
+        <div class="env-flap"></div>
+
+        <div class="env-heart">💌</div>
+
+    </div>
+
+    <div class="click-text">
+        Tap the envelope to open your birthday letter 💗
+    </div>
+
+    <!-- MESSAGE -->
+    <div class="message" id="message">
+
+        <h2>For You, Yasin 🌷</h2>
+
+        <p>
+            Happy Birthday to someone who means so much to me. 🎂❤️
+        </p>
+
+        <p>
+            I know I made mistakes, and I know I hurt you.
+            I also know that I couldn't make your birthday as
+            beautiful as you deserved.
+        </p>
+
+        <p>
+            <span class="highlight">
+                I'm genuinely sorry.
+            </span>
+            I wish I could go back and change the moments
+            where I made things harder for you.
+        </p>
+
+        <p>
+            But today, I don't want this message to be only
+            about my mistakes. I want it to be about
+            <span class="highlight">you</span>.
+        </p>
+
+        <p>
+            You deserve happiness, peaceful days, beautiful
+            memories, and countless reasons to smile. ✨
+        </p>
+
+        <p>
+            And because I know how much you love tulips...
+            🌷🌷🌷
+        </p>
+
+        <p>
+            Here's a tiny virtual garden of them,
+            just for your birthday.
+        </p>
+
+        <p>
+            May this new year of your life bring you
+            everything beautiful that you deserve. 💜
+        </p>
+
+        <p class="highlight">
+            Happy Birthday, Yasin. 🎂🌷✨
+        </p>
+
+        <div class="tulip-garden">
+
+            <div class="tulip">
+                <div class="flower"></div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
+                <div class="leaf right"></div>
+            </div>
+
+            <div class="tulip">
+                <div class="flower"></div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
+                <div class="leaf right"></div>
+            </div>
+
+            <div class="tulip">
+                <div class="flower"></div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
+                <div class="leaf right"></div>
+            </div>
+
+            <div class="tulip">
+                <div class="flower"></div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
+                <div class="leaf right"></div>
+            </div>
+
+            <div class="tulip">
+                <div class="flower"></div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
+                <div class="leaf right"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Made with a little courage, a lot of feelings, and tulips. 🌷
+    </div>
+
+</div>
+
+<script>
+
+function openLetter() {
+
+    const letter = document.getElementById("message");
+
+    letter.style.display = "block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+
+    createConfetti();
+}
+
+function createConfetti() {
+
+    const symbols = [
+        "🌷",
+        "🌸",
+        "💖",
+        "✨",
+        "💜",
+        "🎉",
+        "❤️"
+    ];
+
+    for (let i = 0; i < 35; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerText =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * .8 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 5000);
+    }
+}
+
+</script>
+
+</body>
+    </html>
